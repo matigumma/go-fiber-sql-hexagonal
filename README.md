@@ -60,3 +60,52 @@ Esta es una aplicación de ejemplo que utiliza el framework [Fiber](https://gofi
 - [Go MSSQL Driver](https://github.com/denisenkom/go-mssqldb)
 - [godotenv](https://github.com/joho/godotenv)
 
+## Makefile Commands
+
+This project uses a Makefile to manage common tasks. Below are the available commands:
+
+### Variables
+- `APP_NAME`: The name of the application (default: `go-fiber-sql-hexagonal`)
+- `VERSION`: The version of the application (default: `0.0.1`)
+- `GO_CMD`: The Go command (default: `go`)
+- `CGO_ENABLED`: CGO enable flag (default: `0`)
+
+### Commands
+
+#### `make build`
+Builds the project with CGO disabled and outputs the binary to the `./build` directory with the name `$(APP_NAME)-dev`.
+
+#### `make test`
+Runs all tests in the project with CGO disabled.
+
+#### `make clean`
+Cleans up the binary files and removes the `./build` directory.
+
+#### `make release`
+Builds the production binary with CGO disabled, using the current OS and architecture. The binary is output to the `./build/production` directory with the name `$(APP_NAME)-$(VERSION)`.
+
+### Usage Examples
+
+- To build the project:
+  ```sh
+  make build
+  ```
+
+- To run tests:
+  ```sh
+  make test
+  ```
+
+- To clean up binaries:
+  ```sh
+  make clean
+  ```
+
+- To create a production release:
+  ```sh
+  make release
+  ```
+
+### Notes
+- Ensure you have Go installed and properly set up in your environment.
+- The `CGO_ENABLED` variable is set to `0` by default to disable CGO. You can modify this if your project requires CGO.
